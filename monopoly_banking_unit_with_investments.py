@@ -14,11 +14,12 @@ all_history = []  # global lists to store histories
 class Asset:
     """Asset class that accrues value over time"""
 
-    def __init__(self, name, value, ror, p_up):
+    def __init__(self, name, value, ror, p_up, economy):
         self.name = name
         self.value = value  # starting value of asset
         self.ror = ror  # rate of return
         self.p_up = p_up  # probability of asset value going up
+        self.economy = economy
 
     def tick(self):
         """update value of asset stochastically"""
@@ -34,7 +35,7 @@ class Asset:
 
 
     def get_value(self):
-        return round(self.value, 2)
+        return random.uniform(0, self.economy) * round(self.value, 2)
 
     def get_name(self):
         return self.name
@@ -48,9 +49,9 @@ class Asset:
 
 
 assets = {
-        "Crypto": Asset("Crypto", 61, 0.4, 0.60),
-        "Mutual Funds": Asset("Mutual Funds", 897.67, 0.15, 0.80),
-        "Bonds": Asset("Bonds", 247.7, 0.05, 0.95)
+        "Crypto": Asset("Crypto", 61, 0.4, 0.60, .15),
+        "Mutual Funds": Asset("Mutual Funds", 897.67, 0.15, 0.80, .2),
+        "Bonds": Asset("Bonds", 247.7, 0.05, 0.95, .1)
     }
 
 # Current assets: 
