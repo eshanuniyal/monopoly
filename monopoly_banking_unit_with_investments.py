@@ -35,7 +35,7 @@ class Asset:
 
 
     def get_value(self):
-        return random.uniform(0, self.economy) * round(self.value, 2)
+        return random.uniform(self.economy, 1) * round(self.value, 2)
 
     def get_name(self):
         return self.name
@@ -49,9 +49,9 @@ class Asset:
 
 
 assets = {
-        "Crypto": Asset("Crypto", 61, 0.4, 0.60, .15),
-        "Mutual Funds": Asset("Mutual Funds", 897.67, 0.15, 0.80, .2),
-        "Bonds": Asset("Bonds", 247.7, 0.05, 0.95, .1)
+        "Crypto": Asset("Crypto", 61, 0.4, 0.60, .7),
+        "Mutual Funds": Asset("Mutual Funds", 897.67, 0.15, 0.80, .8),
+        "Bonds": Asset("Bonds", 247.7, 0.05, 0.95, .9)
     }
 
 # Current assets: 
